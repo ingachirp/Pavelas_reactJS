@@ -4,7 +4,7 @@ import Description from "./description";
 // import Headers from "./Header";
 import { useState } from "react";
 // import UserForm from "./UserForm";
-
+const phones=[{title: 'P40', text: 'naujausias modelis'},{title: 'Redmi Node 11', text: 'pakutinis modelis'},{title: ' Redmi 10 Lite', text:"perkamiausias modelis "} ]
 function App() {
   const [parentCount, setParentCount] = useState('');
   function addOneToCount() {
@@ -14,9 +14,16 @@ function App() {
     <div className="App" >
       <header className="App-header">
         <h1>Xiaomi telefonai: {parentCount}</h1>
-        <Description title={"P40"} ></Description>
-        <Description title={"Redmi Node 11"} ></Description>
-        <Description title={"Redmi 10 Lite"} ></Description>
+        {phones.map((phone) => {
+          return <Description
+          key={phone.title} 
+          title= {phone.title}
+          text={phone.text}></Description>
+        })}
+        
+        {/* <Description title={"P40"} text={"tokio modelio nera"}></Description>
+        <Description title={"Redmi Node 11"} text={"pakutinis modelis"}></Description>
+        <Description title={"Redmi 10 Lite"} text={"perkamiausias modelis "} ></Description> */}
         {/* <Headers title={"First counter"} onButtonClick={addOneToCount} /> */}
       </header>
       <section>
